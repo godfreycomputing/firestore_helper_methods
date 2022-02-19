@@ -2,20 +2,21 @@ import 'package:firebase_core/firebase_core.dart';
 
 import '../custom_exceptions/local_exceptions.dart';
 import '../models/base_model.dart';
-import '../src/base_interfaces.dart';
+import '../base_interfaces.dart';
 import 'firestore_base_functions.dart';
 
 ///At least an empty model type must be provided or a [NoModelProvidedException]
 ///will be thrown
 ///
 ///There is an optional [app] field if another FirebaseApp other than the default is necessary.
-class FirebaseHelpers<T extends BaseFirestoreModel> implements ICrudMethods<T> {
+class FirestoreMethods<T extends BaseFirestoreModel>
+    implements ICrudMethods<T> {
   final FirebaseApp? app;
   final T? model;
   final String collection;
   late FirestoreBaseFunctions _firestoreFunctions;
 
-  FirebaseHelpers({required this.model, required this.collection, this.app}) {
+  FirestoreMethods({required this.model, required this.collection, this.app}) {
     _firestoreFunctions = FirestoreBaseFunctions(app);
   }
 

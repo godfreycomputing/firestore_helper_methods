@@ -10,14 +10,3 @@ abstract class ICrudMethods<T> {
   Future<T> add();
   Future<T> update();
 }
-
-abstract class IAuthUserService<T> {
-  Future<T> getCurrentUser();
-  Future<T> createUser({
-    String? email,
-    String? password,
-    String? displayName,
-  });
-  Future<T> signIn({String? email, String? password});
-  Future<void> signOut();
-}

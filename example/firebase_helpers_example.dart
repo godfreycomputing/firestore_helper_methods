@@ -35,19 +35,20 @@ class User extends BaseFirestoreModel {
   Map<String, dynamic> toFirestore() => toMap();
 }
 
-class FirestoreMethods {
+class FirestoreFunctions {
   Future<User> getUserDoc({
     required User user,
     required String collectionName,
   }) async {
-    return await FirebaseHelpers(model: user, collection: collectionName).get();
+    return await FirestoreMethods(model: user, collection: collectionName)
+        .get();
   }
 
   Future<List<User>> getUserCollection({
     required User user,
     required String collectionName,
   }) async {
-    return await FirebaseHelpers(model: user, collection: collectionName)
+    return await FirestoreMethods(model: user, collection: collectionName)
         .getList();
   }
 
@@ -55,21 +56,21 @@ class FirestoreMethods {
     required User user,
     required String collectionName,
   }) async {
-    await FirebaseHelpers(model: user, collection: collectionName).add();
+    await FirestoreMethods(model: user, collection: collectionName).add();
   }
 
   Future<void> deleteUser({
     required User user,
     required String collectionName,
   }) async {
-    await FirebaseHelpers(model: user, collection: collectionName).delete();
+    await FirestoreMethods(model: user, collection: collectionName).delete();
   }
 
   Future<User> updateUser({
     required User user,
     required String collectionName,
   }) async {
-    return await FirebaseHelpers(model: user, collection: collectionName)
+    return await FirestoreMethods(model: user, collection: collectionName)
         .update();
   }
 }
