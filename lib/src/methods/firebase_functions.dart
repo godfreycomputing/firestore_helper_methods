@@ -2,11 +2,15 @@ import 'package:firebase_core/firebase_core.dart';
 
 import '../custom_exceptions/local_exceptions.dart';
 import '../models/base_model.dart';
-import '../base_interfaces.dart';
+import '../interfaces/base_interfaces.dart';
 import 'firestore_base_functions.dart';
 
 ///At least an empty model type must be provided or a [NoModelProvidedException]
 ///will be thrown
+///
+///Will throw a [HelperException] for any Firestore related exceptions.
+///
+///You can catch these and provide your own codes/messages if needed.
 ///
 ///There is an optional [app] field if another FirebaseApp other than the default is necessary.
 class FirestoreMethods<T extends BaseFirestoreModel>
@@ -20,6 +24,7 @@ class FirestoreMethods<T extends BaseFirestoreModel>
     _firestoreFunctions = FirestoreBaseFunctions(app);
   }
 
+  ///Adds the model to the collection specified in the HelperMethods constructor.
   @override
   Future<T> add() async {
     if (model == null)
@@ -40,6 +45,7 @@ class FirestoreMethods<T extends BaseFirestoreModel>
             Future.value(value.convertToModel<T>(() => model!)));
   }
 
+  ///Deletes the model to the collection specified in the HelperMethods constructor.
   @override
   Future<void> delete() async {
     if (model == null)
@@ -52,6 +58,7 @@ class FirestoreMethods<T extends BaseFirestoreModel>
         .delete();
   }
 
+  ///Gets the model to the collection specified in the HelperMethods constructor.
   @override
   Future<T> get() async {
     if (model == null)
@@ -64,6 +71,7 @@ class FirestoreMethods<T extends BaseFirestoreModel>
         .then((doc) => doc.convertToModel<T>(() => model!));
   }
 
+  ///Gets a List of the model to the collection specified in the HelperMethods constructor.
   @override
   Future<List<T>> getList() async {
     if (model == null)
@@ -78,6 +86,7 @@ class FirestoreMethods<T extends BaseFirestoreModel>
             .toList());
   }
 
+  ///Streams a List of the model to the collection specified in the HelperMethods constructor.
   @override
   Stream<List<T>> streamList() {
     if (model == null)
@@ -93,6 +102,7 @@ class FirestoreMethods<T extends BaseFirestoreModel>
             .toList());
   }
 
+  ///Updates the model to the collection specified in the HelperMethods constructor.
   @override
   Future<T> update() async {
     if (model == null)

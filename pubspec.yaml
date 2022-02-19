@@ -1,7 +1,8 @@
 name: firestore_helper_methods
-description: A starting point for Dart libraries or applications.
+description: A package to simplify basic firestore methods.
 version: 1.0.0
 repository: https://github.com/godfreycomputing/firestore_helper_methods
+issues: https://github.com/godfreycomputing/firestore_helper_methods/issues
 
 environment:
   sdk: '>=2.15.1 <3.0.0'

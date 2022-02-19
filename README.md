@@ -11,7 +11,17 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages). 
 -->
 
-These helpers wil help out significantly.  
+These helpers wil help out significantly.  Base Firestore methods are available.
+
+Methods include:
+add
+update
+delete
+get
+getList
+stream
+
+See the example for implementation.
 
 ## Features
 
@@ -24,9 +34,3 @@ import 'package:firestore_helper_methods/firestore_helper_methods.dart';
 ## Usage
 
 See Example.
-
-## Additional information
-
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
