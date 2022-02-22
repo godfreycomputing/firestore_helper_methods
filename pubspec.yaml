@@ -1,7 +1,7 @@
 name: firestore_helper_methods
 description: These helpers wil help out significantly.  Base Firestore methods are available. See the example for implementation.
 
-version: 1.0.2
+version: 1.0.3
 repository: https://github.com/godfreycomputing/firestore_helper_methods
 issues: https://github.com/godfreycomputing/firestore_helper_methods/issues
 
