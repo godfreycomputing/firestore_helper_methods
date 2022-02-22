@@ -27,11 +27,12 @@ class FirestoreMethods<T extends BaseFirestoreModel>
   ///Adds the model to the collection specified in the HelperMethods constructor.
   @override
   Future<T> add() async {
-    if (model == null)
+    if (model == null) {
       throw NoModelProvidedException(
         'add-no-model',
         'No model was provided to this method.',
       );
+    }
     final doc = await _firestoreFunctions
         .collRef(collectionName: collection)
         .add(model!.toFirestore());
@@ -48,11 +49,12 @@ class FirestoreMethods<T extends BaseFirestoreModel>
   ///Deletes the model to the collection specified in the HelperMethods constructor.
   @override
   Future<void> delete() async {
-    if (model == null)
+    if (model == null) {
       throw NoModelProvidedException(
         'delete-no-model',
         'No model was provided to this method.',
       );
+    }
     await _firestoreFunctions
         .docRef(collection: collection, docId: model!.id)
         .delete();

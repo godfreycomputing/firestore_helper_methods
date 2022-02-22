@@ -1,5 +1,6 @@
 name: firestore_helper_methods
-description: A package to simplify basic firestore methods.
+description: These helpers wil help out significantly.  Base Firestore methods are available. See the example for implementation.
+
 version: 1.0.1
 repository: https://github.com/godfreycomputing/firestore_helper_methods
 issues: https://github.com/godfreycomputing/firestore_helper_methods/issues
