@@ -46,6 +46,23 @@ class FirestoreMethods<T extends BaseFirestoreModel>
             Future.value(value.convertToModel<T>(() => model!)));
   }
 
+  Future<T> set() async {
+    if (model == null) {
+      throw NoModelProvidedException(
+        'set-no-model',
+        'No model was provided to this method',
+      );
+    }
+
+    await _firestoreFunctions
+        .docRef(collection: collection, docId: model!.id)
+        .set(model!.toFirestore());
+
+    return await _firestoreFunctions
+        .getDoc(collectionName: collection, docId: model!.id)
+        .then((doc) => model!.fromFirestore(doc.data()!));
+  }
+
   ///Deletes the model to the collection specified in the HelperMethods constructor.
   @override
   Future<void> delete() async {
