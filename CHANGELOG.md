@@ -2,6 +2,7 @@
 
 - Initial version.
 
-## 1.0.1
+## 1.0.2
 
-- Added example
+- Added example.
+- Added control flow to 2 methods.
